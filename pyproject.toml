@@ -1,0 +1,39 @@
+[tool.uv]
+required-version=">=0.9.3"
+
+[tool.ruff]
+indent-width = 2
+line-length = 80
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ruff.lint]
+# enable lint rules https://docs.astral.sh/ruff/rules/
+extend-select = [
+  # https://docs.astral.sh/ruff/rules/#pyflakes-f
+  "F",
+  # isort https://docs.astral.sh/ruff/rules/#isort-i
+  "I",
+  # pylint convention https://docs.astral.sh/ruff/rules/#convention-plc
+  "PLC",
+  # pylint errors https://docs.astral.sh/ruff/rules/#error-ple
+  "PLE",
+  # pyupgrade https://docs.astral.sh/ruff/rules/#pyupgrade-up
+  "UP",
+]
+
+# exceptions to the above
+ignore = [
+  # TODO: enable these?
+  # https://docs.astral.sh/ruff/rules/import-outside-top-level/
+  "PLC0415",
+]
+
+[tool.ruff.lint.isort]
+# Apply the google profile
+# https://pycqa.github.io/isort/docs/configuration/profiles.html
+force-single-line = true
+force-sort-within-sections = true
+order-by-type = false
+single-line-exclusions = ["collections.abc", "typing"]
