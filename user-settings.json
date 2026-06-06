@@ -1,0 +1,215 @@
+{
+//   -- Move lines or selections
+// vim.keymap.set('n', '<C-S-j>', ':m .+1<CR>==') -- move line up (normal mode)
+// vim.keymap.set('n', '<C-S-k>', ':m .-2<CR>==') -- move line down (normal mode)
+// vim.keymap.set('v', '<C-S-j>', ":m '>+1<CR>gv=gv") -- move line up (visual mode)
+// vim.keymap.set('v', '<C-S-k>', ":m '<-2<cr>gv=gv") -- move line down (visual mode)
+
+  // NAVIGATION
+  // Switch between buffers/windows
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<space>"],
+      "after": ["<C-g>", "u", "<space>"]
+    },
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    { "before": ["j"], "after": ["g","j"]},
+    { "before": ["k"], "after": ["g","k"]},
+
+    { "before": ["<S-h>"], "commands": [":bprevious"]},
+    { "before": ["<S-l>"], "commands": [":bnext"]},
+
+    { "before": ["<C-S-h>"], "commands": [":bprevious"]},
+    // FILE TREE
+    {
+      "before": ["<leader>", "q"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.moveEditorToRightGroup"]
+    },
+    {
+      "before": ["<leader>", "h"],
+      "commands": ["workbench.action.moveEditorToLeftGroup"]
+    },
+    {
+      "before": ["<leader>", "s", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "<leader>"],
+      "commands": ["workbench.action.showAllEditors"]
+    },
+
+    // Line breaks
+    {
+      "before": ["<CR>"],
+      "after": ["o", "<Esc>"]
+    },
+    {
+      "before": ["<leader>", "<CR>"],
+      "after": ["i", "<CR>", "<Esc>"]
+    },
+
+    // Center screen
+    {
+      "before": ["<C-u>"],
+      "after": ["<C-u>", "z", "z"]
+    },
+    {
+      "before": ["<C-d>"],
+      "after": ["<C-d>", "z", "z"]
+    },
+    {
+      "before": ["<leader>", "d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["<leader>", "d", "d"],
+      "after": ["\"", "_", "d", "d"]
+    },
+    {
+      "before": ["n"],
+      "after": ["n", "z", "z"]
+    },
+    {
+      "before": ["N"],
+      "after": ["N", "z", "z"]
+    },
+
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+
+    // Invert {} and () for moving vertically
+    {
+      "before": ["{"],
+      "after": ["}"]
+    },
+    {
+      "before": ["}"],
+      "after": ["{"]
+    },
+    {
+      "before": ["("],
+      "after": ["1", "0", "j"]
+    },
+    {
+      "before": [")"],
+      "after": ["1", "0", "k"]
+    },
+    {
+      "before": ["<Up>"],
+      "after": ["5", "k"]
+    },
+    {
+      "before": ["<Down>"],
+      "after": ["5", "j"]
+    },
+    {
+      "before": ["<Tab>"],
+      "after": [">", ">"]
+    },
+    {
+      "before": ["<S-Tab>"],
+      "after": ["<", "<"]
+    },
+    {
+      "before": ["<C-w>"],
+      "after": ["f", "_"]
+    },
+    {
+      "before": ["<C-b>"],
+      "after": ["F", "_"]
+    },
+    {
+      "before": ["]"],
+      "commands": [
+        "editor.action.marker.next"
+      ],
+    },
+    {
+      "before": ["["],
+      "commands": [
+        "editor.action.marker.prev"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive":[
+    {
+      "before": ["p"],
+      "after": ["P"]
+    },
+    {
+      "before": ["<leader>", "d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["<C-r>"],
+      "after": [
+        "\"",
+        "h",
+        "y",
+        ":",
+        "%",
+        "s",
+        "/",
+        "<C-r>",
+        "h",
+        "/",
+        "/",
+        "g",
+        "c",
+        "<left>",
+        "<left>",
+        "<left>",
+      ]
+    },
+    {
+      "before": ["<Tab>"],
+      "after": [">", "g", "v"]
+    },
+    {
+      "before": ["<S-Tab>"],
+      "after": ["<", "g", "v"]
+    },
+
+    // Invert {} and () for moving vertically
+    {
+      "before": ["{"],
+      "after": ["}"]
+    },
+    {
+      "before": ["}"],
+      "after": ["{"]
+    },
+    {
+      "before": ["("],
+      "after": ["1", "0", "j"]
+    },
+    {
+      "before": [")"],
+      "after": ["1", "0", "k"]
+    },
+    {
+      "before": ["<Up>"],
+      "after": ["5", "k"]
+    },
+    {
+      "before": ["<Down>"],
+      "after": ["5", "j"]
+    },
+
+  ],
+  "workbench.settings.applyToAllProfiles": [
+    "editor.cursorSurroundingLines"
+  ],
+  "editor.cursorSurroundingLines": 10
+}
